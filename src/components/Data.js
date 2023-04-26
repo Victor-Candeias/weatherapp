@@ -25,6 +25,7 @@ function GetCities() {
 }
 
 const cityInfoInitialState = { 
+    currentId: "",
     oldId: "",
     loading: true,
     data: [] 
@@ -32,7 +33,7 @@ const cityInfoInitialState = {
 
 function GetCityInfo(id) {
     const [cityInfo, setCityInfo] = React.useState(cityInfoInitialState);
-
+    
     if (cityInfo.oldId !== id) {
         console.log(id);
         const requestAnimePromise = id => {
@@ -44,7 +45,11 @@ function GetCityInfo(id) {
                     cityInfoInitialState.loading = false;
                     cityInfoInitialState.data = json.data;
 
-                    setCityInfo(cityInfoInitialState);                    
+                    setCityInfo(cityInfoInitialState); 
+                    
+                    while (cityInfo.oldId !== id) {
+                        console.log();
+                    };
                 })
                 .catch((error) => {
                     console.error(error);

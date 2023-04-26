@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import ReactDOM from "react-dom";
 import * as AllData from './Data'
 import Note from "./Note";
 
@@ -17,12 +18,10 @@ function App() {
 
   const handleChange = (e) => {
       setValue(e.target.value);
-
-      toggleDrawer(false);
   };
 
   var { cityInfo } = AllData.GetCityInfo(value);
-
+  
   useEffect(() => {
     /* Close the drawer when the user clicks outside of it */
     const closeDrawer = event => {
@@ -37,48 +36,49 @@ function App() {
     return () => document.removeEventListener("mousedown", closeDrawer);
   }, []);
 
-  if (loading || (false === loading && cityInfo.loading)) {
+  if (loading) {
     return <p>Loading...</p>
+  } else {
+    return (
+      <div>
+        <Styles.Wrapper>
+          <CSSReset />
+          <Navbar.Wrapper>
+            <Navbar.Logo>Tempo em Portugal</Navbar.Logo>
+
+            <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
+              <HamburgerButton.Lines />
+            </HamburgerButton.Wrapper>
+
+            <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
+              <Navbar.Item>
+                <h3>Selecione uma cidade</h3>
+                <select class="comboBox-item" value={value} onChange={handleChange}>
+                  {cities.map((city) => (
+                      <option value={city.globalIdLocal}>{city.local}</option>
+                  ))};
+                </select>
+              </Navbar.Item>
+            </Navbar.Items>
+          </Navbar.Wrapper>
+        </Styles.Wrapper>
+        <div className="div-top">
+            { cityInfo.data.map((tmp) => (
+                    <Note 
+                        value={value}
+                        forecastDate={tmp.forecastDate}
+                        tMin={tmp.tMin}
+                        tMax={tmp.tMax}
+                        idWeatherType={tmp.idWeatherType}
+                        precipitaProb={tmp.precipitaProb}
+                        classWindSpeed={tmp.classWindSpeed}
+                    />
+                ))
+            }
+          </div>
+      </div>
+    );
   }
-  
-  return (
-    <div>
-      <Styles.Wrapper>
-        <CSSReset />
-        <Navbar.Wrapper>
-          <Navbar.Logo>Tempo em Portugal</Navbar.Logo>
-
-          <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
-            <HamburgerButton.Lines />
-          </HamburgerButton.Wrapper>
-
-          <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-            <Navbar.Item>
-              <h3>Selecione uma cidade</h3>
-              <select class="comboBox-item" value={value} onChange={handleChange}>
-                {cities.map((city) => (
-                    <option value={city.globalIdLocal}>{city.local}</option>
-                ))};
-              </select>
-            </Navbar.Item>
-          </Navbar.Items>
-        </Navbar.Wrapper>
-      </Styles.Wrapper>    
-      <div className="div-top">
-          {cityInfo.data.map((tmp) => (
-              <Note 
-                  value={value}
-                  forecastDate={tmp.forecastDate}
-                  tMin={tmp.tMin}
-                  tMax={tmp.tMax}
-                  idWeatherType={tmp.idWeatherType}
-                  precipitaProb={tmp.precipitaProb}
-                  classWindSpeed={tmp.classWindSpeed}
-              />
-          ))}  
-        </div>
-    </div>
-  );
 }
 
 const Styles = {
