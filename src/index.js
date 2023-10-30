@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './index.css';
 import App from "./components/App";
-import 'bootstrap/dist/css/bootstrap.css';
 
 // For deploy
 ReactDOM.render(
@@ -10,11 +10,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-/*
-    For debug 
-ReactDOM.render(
-    <App />, 
-    document.getElementById("root")
-);
-*/

@@ -1,0 +1,23 @@
+.header {
+    background-color: rgb(67, 66, 66);
+    border: 0.5px solid rgb(131, 130, 130);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header_label {
+    color: whitesmoke;
+    font-style: italic;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.header_combobox {
+    width: auto;
+    text-align: right;
+    padding: 10px;
+}
