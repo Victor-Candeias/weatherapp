@@ -1,6 +1,6 @@
-import classes from "./Item.module.css";
+import classes from "./ItemMobile.module.css";
 
-const Item = (props) => {
+const ItemMobile = (props) => {
   // local vars
   let idWeatherTypeImage = "";
   let predWindDir = "";
@@ -96,4 +96,4 @@ const Item = (props) => {
   );
 };
 
-export default Item;
+export default ItemMobile;

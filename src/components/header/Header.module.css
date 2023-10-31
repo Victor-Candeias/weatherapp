@@ -16,7 +16,21 @@
     font-size: 1.2rem;
 }
 
+
 .header_combobox {
+    width: auto;
+    text-align: right;
+    padding: 10px;
+}
+
+.header_label_mobile {
+    color: whitesmoke;
+    font-style: italic;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.header_combobox_mobile {
     width: auto;
     text-align: right;
     padding: 10px;

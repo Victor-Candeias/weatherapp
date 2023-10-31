@@ -1,5 +1,6 @@
 import classes from "./Header.module.css";
 import ComboBox from "../comboBox/ComboBox";
+import {isMobile} from 'react-device-detect';
 
 const Header = (props) => {
 
@@ -7,8 +8,8 @@ const Header = (props) => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.header_label}>Weather App Info</div>
-      <div className={classes.header_combobox}>
+      <div className={(isMobile ? classes.header_label_mobile : classes.header_label)}>Weather App Info</div>
+      <div className={(isMobile ? classes.header_combobox_mobile : classes.header_combobox)}>
         <ComboBox citiesList={props.citiesList} onChange={props.onChange}/>
       </div>
     </div>

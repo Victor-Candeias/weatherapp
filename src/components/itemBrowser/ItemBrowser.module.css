@@ -1,4 +1,4 @@
-.item {
+.itemBrowser {
   background-color: rgb(83, 83, 83);;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 5px;
@@ -9,7 +9,7 @@
   color: whitesmoke;
 }
 
-.item h3 {
+.itemBrowser h3 {
   width: 100%;
   text-align: center;
 }

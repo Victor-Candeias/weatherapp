@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 import classes from "./Body.module.css";
-import Item from "../item/Item";
 
 import useHttp from "../../hooks/use-http";
+import ItemBrowser from "../itemBrowser/ItemBrowser";
 
 const dailyCityURL =
   "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/";
@@ -13,7 +13,7 @@ const Body = (props) => {
 
   let selectedCity = props.selectedCity;
 
-  const { isLoading, error, sendRequest: fetchMetTasks } = useHttp();
+  const { sendRequest: fetchMetTasks } = useHttp();
 
   useEffect(() => {
     const transformTasks = (taksMetObj) => {
@@ -36,7 +36,7 @@ const Body = (props) => {
         <BrowserView>
           <div className={classes.body}>
             {dailyMeteorology.data.map((day) => (
-              <Item
+              <ItemBrowser
                 value={day}
                 wind={props.dailyWind}
                 dailytRain={props.dailytRain}
