@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import { BrowserView, MobileView } from "react-device-detect";
 import classes from "./Body.module.css";
 import Item from "../item/Item";
 
@@ -31,15 +32,22 @@ const Body = (props) => {
     return <div>Loading</div>;
   } else {
     return (
-      <div className={classes.body}>
-        {dailyMeteorology.data.map((day) => (
-          <Item
-            value={day}
-            wind={props.dailyWind}
-            dailytRain={props.dailytRain}
-          />
-        ))}
-      </div>
+      <Fragment>
+        <BrowserView>
+          <div className={classes.body}>
+            {dailyMeteorology.data.map((day) => (
+              <Item
+                value={day}
+                wind={props.dailyWind}
+                dailytRain={props.dailytRain}
+              />
+            ))}
+          </div>
+        </BrowserView>
+        <MobileView>
+          <h1>This is rendered only on mobile</h1>
+        </MobileView>
+      </Fragment>
     );
   }
 };
