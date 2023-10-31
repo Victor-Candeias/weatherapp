@@ -1,10 +1,25 @@
 .combobox {
-    font-size: 1.3rem;
-    width: 300px;
-    border-radius: 5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: left;
-    background-color: whitesmoke;
-    border: 0 transparent;
-    margin: 5px;
+  font-size: 1.3rem;
+  width: 300px;
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  background-color: whitesmoke;
+  border: 0 transparent;
+  margin: 5px;
+}
+
+.combobox_mobile {
+  font-size: 4rem;
+  width: auto;
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  background-color: whitesmoke;
+  border: 0 transparent;
+  margin: 5px;
+}
+
+.combobox_option_mobile {
+    font-size: 0.8rem;
 }

@@ -4,6 +4,7 @@ import classes from "./Body.module.css";
 
 import useHttp from "../../hooks/use-http";
 import ItemBrowser from "../itemBrowser/ItemBrowser";
+import ItemMobile from "../itemMobile/ItemMobile";
 
 const dailyCityURL =
   "https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/";
@@ -45,7 +46,15 @@ const Body = (props) => {
           </div>
         </BrowserView>
         <MobileView>
-          <h1>This is rendered only on mobile</h1>
+        <div className={classes.body}>
+            {dailyMeteorology.data.map((day) => (
+              <ItemMobile
+                value={day}
+                wind={props.dailyWind}
+                dailytRain={props.dailytRain}
+              />
+            ))}
+          </div>
         </MobileView>
       </Fragment>
     );

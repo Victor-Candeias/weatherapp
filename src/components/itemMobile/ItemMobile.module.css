@@ -1,4 +1,4 @@
-.itemMobile {
+.item_mobile {
     background-color: rgb(83, 83, 83);;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
@@ -9,12 +9,14 @@
     color: whitesmoke;
   }
   
-  .itemMobile h3 {
+  .item_mobile h1 {
     width: 100%;
     text-align: center;
+    color: rgb(197, 233, 205);
+    font-size: 4rem;
   }
   
-  table {
+  .table_mobile {
     table-layout: fixed;
     width: 100%; /* must have this set */
     text-align: center;
@@ -25,60 +27,25 @@
   .tr_header {
     background-color: transparent;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 3.5rem;
   }
   
+  .tr_bottom {
+    background-color: transparent;
+    font-style: italic;
+    font-size: 3.5rem;
+  }
+
   .tr_header_img_arrows {
     vertical-align: middle;
     text-align: center;
+    height: 100px;
+    width: 100px;
   }
   
   .tr_header_img_weather {
     vertical-align: middle;
     text-align: center;
-  }
-
-  
-  @media (min-width: 1000px) {
-    table {
-      font-size: 1rem;
-      font-weight: bolder;
-      text-wrap: nowrap;
-    }
-  }
-  
-  @media (max-width: 1000px) {
-    table {
-      font-size: 0.7rem;
-      font-weight: bolder;
-      text-wrap: wrap;
-    }
-  }
-  
-  @media (min-width: 1000px) {
-    .tr_header_img_arrows {
-      height: 30px;
-      width: 30px;
-    }
-  }
-  
-  @media (max-width: 1000px) {
-    .tr_header_img_arrows {
-      height: 20px;
-      width: 20px;
-    }
-  }
-  
-  @media (min-width: 1000px) {
-    .tr_header_img_weather {
-      height: 50px;
-      width: 50px;
-    }
-  }
-  
-  @media (max-width: 1000px) {
-    .tr_header_img_weather {
-      height: 35px;
-      width: 35px;
-    }
+    height: 140px;
+    width: 140px;
   }

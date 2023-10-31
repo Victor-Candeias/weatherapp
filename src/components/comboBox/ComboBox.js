@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 
 import classes from "./ComboBox.module.css";
 import { Fragment } from "react";
+import { isMobile } from "react-device-detect";
 
 export default function App(props) {
   console.log(props);
@@ -13,11 +14,11 @@ export default function App(props) {
       {props.citiesList !== undefined && (
         <Form.Select
           aria-label="Default select example"
-          className={classes.combobox}
+          className={isMobile ? classes.combobox_mobile : classes.combobox}
           onChange={props.onChange}
         >
           {props.citiesList.map((city) => (
-            <option key={city.globalIdLocal} value={city.globalIdLocal}>
+            <option className={isMobile ? classes.combobox_option_mobile : ''} key={city.globalIdLocal} value={city.globalIdLocal}>
               {city.local}
             </option>
           ))}

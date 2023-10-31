@@ -48,47 +48,54 @@ const ItemMobile = (props) => {
   );
 
   return (
-    <div className={classes.item}>
-      <h3>{formattedDate + " " + props.value.forecastDate}</h3>
-      <table class="sturdy">
+    <div className={classes.item_mobile}>
+      <h1>{formattedDate + " " + props.value.forecastDate}</h1>
+      <table class={classes.table_mobile}>
+        {/* temperatura*/}
         <tr className={classes.tr_header}>
           <td>Temp. Min.</td>
           <td>Temp. Max.</td>
+        </tr>
+        <tr>
+          <td
+            className={classes.tr_bottom}
+            style={{ color: "rgb(73, 128, 231)" }}
+          >
+            {props.value.tMin}
+          </td>
+          <td className={classes.tr_bottom} style={{ color: "red" }}>
+            {props.value.tMax}
+          </td>
+        </tr>
+
+        {/* precipitação + vento */}
+        <tr className={classes.tr_header}>
           <td>Prb. Precip.</td>
           <td>Vento</td>
-          <td rowspan="2">
-            <img
-              alt={props.value.predWindDir}
-              src={predWindDir}
-              className={classes.tr_header_img_arrows}
-            />
+        </tr>
+        <tr>
+          <td className={classes.tr_bottom}>{props.value.precipitaProb} %</td>
+          <td className={classes.tr_bottom}>
+            {idWeatherWindSpeed.length !== 0 &&
+              idWeatherWindSpeed[0].descClassWindSpeedDailyPT}
           </td>
-          <td>Precipit.</td>
-          <td rowspan="2">
+        </tr>
+
+        {/* icons */}
+        <tr className={classes.tr_header}>
+          <td>
             <img
               alt={props.value.idWeatherType}
               src={idWeatherTypeImage}
               className={classes.tr_header_img_weather}
             />
           </td>
-        </tr>
-        <tr>
-          <td
-            className={classes.tr_botton}
-            style={{ color: "rgb(73, 128, 231)" }}
-          >
-            {props.value.tMin}
-          </td>
-          <td className={classes.tr_botton} style={{ color: "red" }}>
-            {props.value.tMax}
-          </td>
-          <td className={classes.tr_botton}>{props.value.precipitaProb} %</td>
-          <td className={classes.tr_botton}>
-            {idWeatherWindSpeed.length !== 0 &&
-              idWeatherWindSpeed[0].descClassWindSpeedDailyPT}
-          </td>
-          <td className={classes.tr_botton}>
-            {idWeatherRain.length !== 0 && idWeatherRain[0].descClassPrecIntPT}
+          <td>
+            <img
+              alt={props.value.predWindDir}
+              src={predWindDir}
+              className={classes.tr_header_img_arrows}
+            />
           </td>
         </tr>
       </table>

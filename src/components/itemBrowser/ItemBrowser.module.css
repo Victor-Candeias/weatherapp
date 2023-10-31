@@ -1,4 +1,4 @@
-.itemBrowser {
+.item_browser {
   background-color: rgb(83, 83, 83);;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 5px;
@@ -9,12 +9,12 @@
   color: whitesmoke;
 }
 
-.itemBrowser h3 {
+.item_browser h3 {
   width: 100%;
   text-align: center;
 }
 
-table {
+.table_browser {
   table-layout: fixed;
   width: 100%; /* must have this set */
   text-align: center;
@@ -38,17 +38,8 @@ table {
   text-align: center;
 }
 
-/*
-.tr_bottom {
-  border-left-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-color: rgb(131, 130, 130);
-}
-*/
-
 @media (min-width: 1000px) {
-  table {
+  .table_browser {
     font-size: 1rem;
     font-weight: bolder;
     text-wrap: nowrap;
@@ -56,7 +47,7 @@ table {
 }
 
 @media (max-width: 1000px) {
-  table {
+  .table_browser {
     font-size: 0.7rem;
     font-weight: bolder;
     text-wrap: wrap;

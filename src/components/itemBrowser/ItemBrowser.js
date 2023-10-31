@@ -48,9 +48,9 @@ const ItemBrowser = (props) => {
   );
 
   return (
-    <div className={classes.itemBrowser}>
+    <div className={classes.item_browser}>
       <h3>{formattedDate + " " + props.value.forecastDate}</h3>
-      <table class="sturdy">
+      <table className={classes.table_browser}>
         <tr className={classes.tr_header}>
           <td>Temp. Min.</td>
           <td>Temp. Max.</td>
