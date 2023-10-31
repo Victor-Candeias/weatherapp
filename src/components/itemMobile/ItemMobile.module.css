@@ -28,12 +28,16 @@
     background-color: transparent;
     font-style: italic;
     font-size: 3.5rem;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
   
   .tr_bottom {
     background-color: transparent;
     font-style: italic;
     font-size: 3.5rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   .tr_header_img_arrows {
