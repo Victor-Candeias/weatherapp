@@ -6,7 +6,7 @@ const Header = (props) => {
 
   return (
     <div className={classes.header}>
-      <div className={(isMobile ? classes.header_label_mobile : classes.header_label)}>Weather App Info</div>
+      <div className={(isMobile ? classes.header_label_mobile : classes.header_label)}>Tempo Portugal</div>
       <div className={classes.header_combobox}>
         <ComboBox citiesList={props.citiesList} onChange={props.onChange}/>
       </div>
