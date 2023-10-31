@@ -2,7 +2,7 @@ import classes from "./ItemBrowser.module.css";
 
 const ItemBrowser = (props) => {
   // local vars
-  let idWeatherTypeImage = "";
+  let idWeatherTypeImage = process.env.PUBLIC_URL + "/images/w_ic_d_0anim.svg";
   let predWindDir = "";
   let idWeatherWindSpeed = "---";
   let idWeatherRain = "--";
@@ -26,7 +26,7 @@ const ItemBrowser = (props) => {
 
     // Wind direction image
     predWindDir =
-      process.env.PUBLIC_URL + "/images/" + props.value.predWindDir + ".png";
+      process.env.PUBLIC_URL + "/images/" + String(props.value.predWindDir).toLocaleLowerCase() + ".png";
 
     // Wind speed text
     idWeatherWindSpeed = props.wind.data.filter((wind) => {
@@ -37,9 +37,7 @@ const ItemBrowser = (props) => {
     idWeatherRain = props.dailytRain.data.filter((rain) => {
       return rain.classPrecInt === "" + props.value.classPrecInt;
     });
-  } else {
-    idWeatherTypeImage = process.env.PUBLIC_URL + "/images/w_ic_d_0anim.svg";
-  }
+  } 
 
   // Format date to long for header
   let formattedDate = new Date(props.value.forecastDate).toLocaleString(
