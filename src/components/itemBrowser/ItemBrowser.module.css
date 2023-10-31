@@ -56,15 +56,15 @@
 
 @media (min-width: 1000px) {
   .tr_header_img_arrows {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
   }
 }
 
 @media (max-width: 1000px) {
   .tr_header_img_arrows {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
   }
 }
 
