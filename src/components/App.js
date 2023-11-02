@@ -84,7 +84,7 @@ function App() {
 
     // Validate is is day or night
     let currentHour = new Date().getHours();
-    let isDay = false; // (currentHour > 7 && currentHour < 19);
+    let isDay = (currentHour > 7 && currentHour < 19);
 
   if (
     isLoading ||
