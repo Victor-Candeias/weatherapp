@@ -48,9 +48,9 @@ const ItemBrowser = (props) => {
   // color of prob rain
   let probRainColor = "red";
 
-  if (props.value.precipitaProb < 30) {
+  if (props.value.precipitaProb <= 30) {
     probRainColor = "rgb(34, 199, 34)";
-  } else if (props.value.precipitaProb < 30) {
+  } else if (props.value.precipitaProb > 30 && props.value.precipitaProb < 69) {
     probRainColor = "darkyellow";
   }
 
