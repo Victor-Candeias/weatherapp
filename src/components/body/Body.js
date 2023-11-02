@@ -41,6 +41,7 @@ const Body = (props) => {
                 value={day}
                 wind={props.dailyWind}
                 dailytRain={props.dailytRain}
+                isDay={props.isDay}
               />
             ))}
           </div>
@@ -52,6 +53,7 @@ const Body = (props) => {
                 value={day}
                 wind={props.dailyWind}
                 dailytRain={props.dailytRain}
+                isDay={props.isDay}
               />
             ))}
           </div>

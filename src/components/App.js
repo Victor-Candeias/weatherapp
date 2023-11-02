@@ -82,6 +82,10 @@ function App() {
     setSelectedCity(filtered2[0].globalIdLocal);
   };
 
+    // Validate is is day or night
+    let currentHour = new Date().getHours();
+    let isDay = false; // (currentHour > 7 && currentHour < 19);
+
   if (
     isLoading ||
     (cities.data !== undefined && cities.data.length === 0) ||
@@ -92,7 +96,11 @@ function App() {
     return (
       <div>
         <div className={classes.app_header}>
-          <Header citiesList={cities.data} onChange={handleSelectChange} />
+          <Header
+            citiesList={cities.data}
+            onChange={handleSelectChange}
+            isDay={isDay}
+          />
         </div>
         <div>
           {selectedCity !== 0 && (
@@ -100,6 +108,7 @@ function App() {
               selectedCity={selectedCity}
               dailyWind={dailyWind}
               dailytRain={dailytRain}
+              isDay={isDay}
             />
           )}
         </div>

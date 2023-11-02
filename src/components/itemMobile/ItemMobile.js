@@ -12,14 +12,11 @@ const ItemMobile = (props) => {
   }
 
   if (props.value !== null) {
-    // get current for the images
-    let currentHour = new Date().getHours();
-
     // set weather image base on hour and weather type
     idWeatherTypeImage =
       process.env.PUBLIC_URL +
       "/images/w_ic_" +
-      (currentHour > 7 && currentHour < 19 ? "d" : "a") +
+      (props.isDay ? "d" : "n") +
       "_" +
       String(props.value.idWeatherType).padStart(2, "0") +
       "anim.svg";
@@ -48,8 +45,23 @@ const ItemMobile = (props) => {
     { weekday: "long" }
   );
 
+  // color of prob rain
+  let probRainColor = "red";
+
+  if (props.value.precipitaProb < 30) {
+    probRainColor = "rgb(34, 199, 34)";
+  } else if (props.value.precipitaProb < 30) {
+    probRainColor = "darkyellow";
+  }
+
   return (
-    <div className={classes.item_mobile}>
+    <div
+      className={
+        classes.item_mobile +
+        " " +
+        (props.isDay ? classes.item_mobile_day : classes.item_mobile_night)
+      }
+    >
       <h1>{formattedDate + " " + props.value.forecastDate}</h1>
       <table class={classes.table_mobile}>
         {/* temperatura*/}
@@ -75,7 +87,9 @@ const ItemMobile = (props) => {
           <td>Vento</td>
         </tr>
         <tr>
-          <td className={classes.tr_bottom}>{props.value.precipitaProb} %</td>
+          <td className={classes.tr_bottom} style={{ color: probRainColor }}>
+            {props.value.precipitaProb}%
+          </td>
           <td className={classes.tr_bottom}>
             {idWeatherWindSpeed.length !== 0 &&
               idWeatherWindSpeed[0].descClassWindSpeedDailyPT}

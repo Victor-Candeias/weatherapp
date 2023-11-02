@@ -14,11 +14,19 @@ export default function App(props) {
       {props.citiesList !== undefined && (
         <Form.Select
           aria-label="Default select example"
-          className={isMobile ? classes.combobox_mobile : classes.combobox}
+          className={
+            (isMobile ? classes.combobox_mobile : classes.combobox) +
+            " " +
+            (props.isDay ? classes.combobox_day : classes.combobox_night)
+          }
           onChange={props.onChange}
         >
           {props.citiesList.map((city) => (
-            <option className={isMobile ? classes.combobox_option_mobile : ''} key={city.globalIdLocal} value={city.globalIdLocal}>
+            <option
+              className={isMobile ? classes.combobox_option_mobile : ""}
+              key={city.globalIdLocal}
+              value={city.globalIdLocal}
+            >
               {city.local}
             </option>
           ))}
