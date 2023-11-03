@@ -23,7 +23,7 @@ function App() {
 
   // Countries list
   const [cities, setCities] = useState([]);
-  const [selectedCity, setSelectedCity] = useState(0);
+  const [selectedCity, setSelectedCity] = useState({});
 
   const { isLoading, sendRequest: fetchTasks } = useHttp();
 
@@ -58,8 +58,13 @@ function App() {
   // Lista de cidades
   useEffect(() => {
     const transformTasks = (taksObj) => {
+      // sorte by name
+      taksObj.data.sort(function (a, b) {
+        return a.local.localeCompare(b.local);
+      })
+
       setCities(taksObj);
-      setSelectedCity(taksObj.data[0].globalIdLocal);
+      setSelectedCity(taksObj.data[0]);
     };
 
     fetchTasks(
@@ -79,17 +84,17 @@ function App() {
       return "" + city.globalIdLocal === e.currentTarget.value;
     });
 
-    setSelectedCity(filtered2[0].globalIdLocal);
+    setSelectedCity(filtered2[0]);
   };
 
-    // Validate is is day or night
-    let currentHour = new Date().getHours();
-    let isDay = (currentHour > 7 && currentHour < 19);
+  // Validate is is day or night
+  let currentHour = new Date().getHours();
+  let isDay = currentHour > 7 && currentHour < 19;
 
   if (
     isLoading ||
     (cities.data !== undefined && cities.data.length === 0) ||
-    selectedCity === 0
+    Object.keys(selectedCity).length === 0
   ) {
     return <div>Loading</div>;
   } else {
@@ -103,7 +108,7 @@ function App() {
           />
         </div>
         <div>
-          {selectedCity !== 0 && (
+          {Object.keys(selectedCity).length !== 0 && (
             <Body
               selectedCity={selectedCity}
               dailyWind={dailyWind}

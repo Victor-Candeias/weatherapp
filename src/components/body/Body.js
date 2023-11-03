@@ -23,7 +23,7 @@ const Body = (props) => {
 
     fetchMetTasks(
       {
-        url: dailyCityURL + selectedCity + ".json",
+        url: dailyCityURL + selectedCity.globalIdLocal + ".json",
       },
       transformTasks
     );
@@ -35,7 +35,19 @@ const Body = (props) => {
     return (
       <Fragment>
         <BrowserView>
-          <div className={classes.body}>
+          <div className={classes.body_browser}>
+            <img
+              className={classes.city_image_browser}
+              alt={selectedCity.local}
+              src={
+                process.env.PUBLIC_URL +
+                "/images/" +
+                String(selectedCity.local).toLocaleLowerCase() +
+                ".png"
+              }
+            />
+          </div>
+          <div className={classes.body_browser}>
             {dailyMeteorology.data.map((day) => (
               <ItemBrowser
                 value={day}
@@ -47,7 +59,19 @@ const Body = (props) => {
           </div>
         </BrowserView>
         <MobileView>
-        <div className={classes.body}>
+          <div className={classes.body_mobile}>
+            <img
+              className={classes.city_image_mobile}
+              alt={selectedCity.local}
+              src={
+                process.env.PUBLIC_URL +
+                "/images/" +
+                String(selectedCity.local).toLocaleLowerCase() +
+                ".png"
+              }
+            />
+          </div>
+          <div className={classes.body_mobile}>
             {dailyMeteorology.data.map((day) => (
               <ItemMobile
                 value={day}

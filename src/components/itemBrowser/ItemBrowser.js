@@ -62,22 +62,24 @@ const ItemBrowser = (props) => {
         (props.isDay ? classes.item_browser_day : classes.item_browser_night)
       }
     >
-      <h3>{formattedDate + " " + props.value.forecastDate}</h3>
       <table className={classes.table_browser}>
-        <tr className={classes.tr_header}>
-          <td>Temp. Min.</td>
-          <td>Temp. Max.</td>
-          <td>Prb. Precip.</td>
-          <td>Vento</td>
-          <td rowspan="2">
-            <img
-              alt={props.value.predWindDir}
-              src={predWindDir}
-              className={classes.tr_header_img_arrows}
-            />
+        {/* dia semana */}
+        <tr>
+          <td>
+            <div className={classes.item_browser_weekdate}>{formattedDate}</div>
           </td>
-          <td>Precipit.</td>
-          <td rowspan="2">
+        </tr>
+
+        {/* data */}
+        <tr>
+          <td className={classes.item_browser_labelgray}>
+            {props.value.forecastDate}
+          </td>
+        </tr>
+
+        {/* imagem tempo */}
+        <tr>
+          <td>
             <img
               alt={props.value.idWeatherType}
               src={idWeatherTypeImage}
@@ -85,25 +87,33 @@ const ItemBrowser = (props) => {
             />
           </td>
         </tr>
+
+        {/* temperatura */}
         <tr>
-          <td
-            className={classes.tr_botton}
-            style={{ color: "rgb(73, 128, 231)" }}
-          >
-            {props.value.tMin}
+          <td>
+            <div style={{ color: "rgb(73, 128, 231)" }}>
+              {props.value.tMin}°
+            </div>
+            <div style={{ color: "red" }}>{props.value.tMax}°</div>
           </td>
-          <td className={classes.tr_botton} style={{ color: "red" }}>
-            {props.value.tMax}
+        </tr>
+
+        {/* direcção vento */}
+        <tr>
+          <td>
+            <img
+              alt={props.value.predWindDir}
+              src={predWindDir}
+              className={classes.tr_header_img_arrows}
+            />
           </td>
-          <td className={classes.tr_botton} style={{ color: probRainColor }}>
-            {props.value.precipitaProb} %
-          </td>
-          <td className={classes.tr_botton}>
+        </tr>
+
+        {/* informação vento */}
+        <tr>
+          <td className={classes.item_browser_labelgray}>
             {idWeatherWindSpeed.length !== 0 &&
               idWeatherWindSpeed[0].descClassWindSpeedDailyPT}
-          </td>
-          <td className={classes.tr_botton}>
-            {idWeatherRain.length !== 0 && idWeatherRain[0].descClassPrecIntPT}
           </td>
         </tr>
       </table>

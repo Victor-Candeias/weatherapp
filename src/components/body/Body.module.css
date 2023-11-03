@@ -1,8 +1,27 @@
-.body {
+.body_browser {
+    margin: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.body_mobile {
     margin: 15px;
     background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.city_image_browser {
+    height: 300px;
+    border-radius: 10px;
+}
+
+.city_image_mobile {
+    height: 300px;
+    border-radius: 10px;
 }
