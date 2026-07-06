@@ -1,0 +1,167 @@
+/* ── Shared ─────────────────────────── */
+.card {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.card_day {
+  background-color: rgba(255,255,255,0.88);
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.card_night {
+  background-color: rgba(40,44,68,0.92);
+  color: #e8e8ff;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Título */
+.card_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.weekdate {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.datestr {
+  font-size: 0.68rem;
+  color: darkgrey;
+}
+
+/* Linha central: ícone + temps + vento */
+.card_main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.temps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+.temp_min { color: #4a90d9; }
+.temp_max { color: #e74c3c; }
+
+/* Vento */
+.wind_label {
+  text-align: center;
+  font-size: 0.72rem;
+  color: darkgrey;
+}
+
+/* Precipitação */
+.rain_section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rain_label {
+  font-size: 0.65rem;
+  color: darkgrey;
+  white-space: nowrap;
+}
+
+.rain_bar_wrap {
+  flex: 1;
+  height: 6px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rain_bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.rain_pct {
+  font-size: 0.68rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* UV index */
+.uv_section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.uv_label {
+  font-size: 0.65rem;
+  color: darkgrey;
+  font-weight: 600;
+}
+
+.uv_value {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Mobile UV */
+@media (max-width: 768px) {
+  .uv_label  { font-size: 0.85rem; }
+  .uv_value  { font-size: 1rem; }
+}
+@media (min-width: 769px) {
+  .weekdate { font-size: 0.85rem; }
+  .img_weather { height: 52px; width: 52px; }
+  .img_arrows  { height: 18px; width: 18px; }
+
+  .temps {
+    font-size: 1rem;
+    gap: 2px;
+  }
+}
+
+/* ── Mobile (≤ 768px): card expandido ── */
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .weekdate { font-size: 1.4rem; }
+  .datestr  { font-size: 0.9rem; }
+
+  .img_weather { height: 80px; width: 80px; }
+  .img_arrows  { height: 50px; width: 50px; }
+
+  .temps {
+    font-size: 1.6rem;
+    gap: 4px;
+  }
+
+  .wind_label { font-size: 1rem; }
+
+  .rain_label { font-size: 0.85rem; }
+  .rain_pct   { font-size: 0.9rem; }
+
+  .rain_bar_wrap { height: 10px; }
+}

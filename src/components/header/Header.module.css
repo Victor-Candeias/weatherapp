@@ -1,0 +1,37 @@
+.header {
+    border-radius: 12px;
+    margin: 10px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: calc(100% - 20px);
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.4s ease;
+    box-sizing: border-box;
+}
+
+.header_day   { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; }
+.header_night { background: linear-gradient(135deg, #0d0d1a, #1a237e); color: #e0e0ff; }
+
+.header_label {
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.header_combobox {
+    padding: 6px 0;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .header_label { font-size: 1.4rem; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header_label { font-size: 2rem; }
+    .header { padding: 12px 16px; }
+}

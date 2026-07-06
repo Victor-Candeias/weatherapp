@@ -1,0 +1,32 @@
+.combobox {
+  font-size: 1.3rem;
+  width: 300px;
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  border: 0 transparent;
+  margin: 5px;
+}
+
+.combobox_mobile {
+  font-size: 4rem;
+  width: auto;
+  border-radius: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  border: 0 transparent;
+  margin: 5px;
+}
+
+.combobox_option_mobile {
+    font-size: 0.8rem;
+}
+
+.combobox_day {
+  background-color: whitesmoke;
+}
+
+.combobox_night {
+  background-color:  rgb(83, 83, 83);
+  color: white;
+}
